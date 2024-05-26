@@ -1,28 +1,16 @@
-local match = std.native('regexp.MatchString');
-local sort(envs) =
-  local _ = std.sort(envs);
-  envs;
+local check = (import '../../common/action_ref_should_be_full_length_commit_sha.jsonnet').check;
 
-local check(elem, param) =
-  std.objectHas(elem, 'uses') &&
-  !std.startsWith(elem.uses, './') &&
-  !match('@[a-fA-f0-9]{40}$', elem.uses) &&
-  !std.any(std.map(
-    function(excludedAction) std.startsWith(elem.uses, excludedAction + '@'),
-    std.get(param.config, 'excludes', [])
-  ));
+/* workflow
+jobs:
+  <job name>:
+    steps:
+      - uses: <action>@<version>
+  <job name>:
+    uses: <action>@<version>
+*/
 
-function(param) sort([
-  {
-    name: "action's ref should be full length commit SHA",
-    location: {
-      job: job.key,
-      uses: job.value.uses,
-    },
-  }
-  for job in std.objectKeysValues(param.data.value[0].jobs)
-  if check(job.value, param)
-] + [
+function(param) [
+  // step
   {
     name: "action's ref should be full length commit SHA",
     location: {
@@ -32,7 +20,18 @@ function(param) sort([
       uses: step.uses,
     },
   }
-  for job in std.objectKeysValues(param.data.value[0].jobs)
+  for job in std.sort(std.objectKeysValues(param.data.value[0].jobs), function(x) x.key)
   for step in std.get(job.value, 'steps', [])
   if check(step, param)
-])
+] + [
+  // reusable workflow
+  {
+    name: "action's ref should be full length commit SHA",
+    location: {
+      job: job.key,
+      uses: job.value.uses,
+    },
+  }
+  for job in std.sort(std.objectKeysValues(param.data.value[0].jobs), function(x) x.key)
+  if std.objectHas(job.value, 'uses') && check(job.value, param)
+]
