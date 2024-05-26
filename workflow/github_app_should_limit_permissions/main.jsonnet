@@ -1,4 +1,4 @@
-local check = import '../../common/github_app_should_limit_permissions.jsonnet';
+local check = import '../../util/github_app_should_limit_permissions.jsonnet';
 
 function(param) [
   {
