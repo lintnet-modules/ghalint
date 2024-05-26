@@ -1,0 +1,7 @@
+on: push
+jobs:
+  build:
+    permissions: read-all
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo Hello

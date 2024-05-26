@@ -1,0 +1,7 @@
+runs:
+  using: "composite"
+  steps:
+    - run: echo 1
+      shell: bash
+    - run: echo 2
+      id: echo-2
