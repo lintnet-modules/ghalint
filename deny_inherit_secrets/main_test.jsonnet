@@ -1,12 +1,12 @@
 function(param) [
   {
     name: 'pass',
-    data_file: 'pass.yaml',
+    data_file: 'testdata/pass.yaml',
     result: [],
   },
   {
     name: 'fail',
-    data_file: 'fail.yaml',
+    data_file: 'testdata/fail.yaml',
     result: [
       {
         name: 'secrets: inherit should not be used',

@@ -1,12 +1,12 @@
 function(param) [
   {
     name: 'pass',
-    data_file: 'pass.yaml',
+    data_file: 'testdata/pass.yaml',
     result: [],
   },
   {
     name: 'fail',
-    data_file: 'fail.yaml',
+    data_file: 'testdata/fail.yaml',
     result: [
       {
         name: 'GitHub Actions issueing GitHub Access tokens from GitHub Apps should limit repositories',
@@ -28,7 +28,7 @@ function(param) [
   },
   {
     name: 'excludes',
-    data_file: 'fail.yaml',
+    data_file: 'testdata/fail.yaml',
     param: {
       data: {
         file_path: '.github/workflows/fail.yaml',

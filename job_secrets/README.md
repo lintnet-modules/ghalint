@@ -14,11 +14,11 @@ function(param) {
       ],
       modules: [
         // without config
-        'github_archive/github.com/lintnet/modules/modules/ghalint/job_secrets/main.jsonnet@60a46a4fa4c0e7b1b95f57c479e756afa2f376e9:v0.1.0',
+        'github_archive/github.com/lintnet-modules/ghalint/job_secrets/main.jsonnet@b2b06cb862255b4516ee33cd328718186393878d:v0.1.0',
 
         // with config
         {
-          path: 'github_archive/github.com/lintnet/modules/modules/ghalint/job_secrets/main.jsonnet@60a46a4fa4c0e7b1b95f57c479e756afa2f376e9:v0.1.0',
+          path: 'github_archive/github.com/lintnet-modules/ghalint/job_secrets/main.jsonnet@b2b06cb862255b4516ee33cd328718186393878d:v0.1.0',
           config: {
             excludes: [
               {
