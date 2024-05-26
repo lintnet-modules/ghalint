@@ -1,8 +1,6 @@
-local sort(envs) =
-  local _ = std.sort(envs);
-  envs;
+local check = import '../../common/github_app_should_limit_permissions.jsonnet';
 
-function(param) sort([
+function(param) [
   {
     name: 'GitHub Actions issueing GitHub Access tokens from GitHub Apps should limit permissions',
     location: {
@@ -12,9 +10,7 @@ function(param) sort([
       uses: step.uses,
     },
   }
-  for job in std.objectKeysValues(param.data.value[0].jobs)
+  for job in std.sort(std.objectKeysValues(param.data.value[0].jobs), function(job) job.key)
   for step in std.get(job.value, 'steps', [])
-  if std.objectHas(step, 'uses') &&
-    std.startsWith(step.uses, 'tibdex/github-app-token@') &&
-    !std.objectHas(std.get(step, 'with', {}), 'permissions')
-])
+  if check(step)
+]
