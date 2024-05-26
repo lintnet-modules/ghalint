@@ -1,34 +1,20 @@
-local sort(envs) =
-  local _ = std.sort(envs);
-  envs;
+local check = import '../../common/github_app_should_limit_repositories.jsonnet';
 
-function(param) sort([
+function(param) [
   {
     name: 'GitHub Actions issueing GitHub Access tokens from GitHub Apps should limit repositories',
     location: {
-      job: job.key,
       [if std.objectHas(step, 'name') then 'step_name']: step.name,
       [if std.objectHas(step, 'id') then 'step_id']: step.id,
       uses: step.uses,
     },
   }
-  for job in std.objectKeysValues(param.data.value[0].jobs)
-  for step in std.get(job.value, 'steps', [])
-  if std.objectHas(step, 'uses') && (
-    (
-      std.startsWith(step.uses, 'tibdex/github-app-token@') &&
-      !std.objectHas(std.get(step, 'with', {}), 'repositories')
-    ) || (
-      std.startsWith(step.uses, 'actions/create-github-app-token@') &&
-      !std.objectHas(std.get(step, 'with', {}), 'repositories') &&
-      std.objectHas(std.get(step, 'with', {}), 'owner')
-    )
-  ) &&
+  for step in std.get(std.get(param.data.value[0], 'runs', {}), 'steps', [])
+  if check(step) &&
     std.length(std.filter(
       function(elem)
-        param.data.file_path == elem.workflow_file_path &&
-        job.key == elem.job_name &&
+        param.data.file_path == elem.action_file_path &&
         std.get(step, 'id', '') == elem.step_id,
       std.get(param.config, 'excludes', [])
     )) == 0
-])
+]

@@ -1,8 +1,6 @@
-local sort(envs) =
-  local _ = std.sort(envs);
-  envs;
+local check = import '../../common/github_app_should_limit_repositories.jsonnet';
 
-function(param) sort([
+function(param) [
   {
     name: 'GitHub Actions issueing GitHub Access tokens from GitHub Apps should limit repositories',
     location: {
@@ -12,18 +10,9 @@ function(param) sort([
       uses: step.uses,
     },
   }
-  for job in std.objectKeysValues(param.data.value[0].jobs)
+  for job in std.sort(std.objectKeysValues(param.data.value[0].jobs), function(job) job.key)
   for step in std.get(job.value, 'steps', [])
-  if std.objectHas(step, 'uses') && (
-    (
-      std.startsWith(step.uses, 'tibdex/github-app-token@') &&
-      !std.objectHas(std.get(step, 'with', {}), 'repositories')
-    ) || (
-      std.startsWith(step.uses, 'actions/create-github-app-token@') &&
-      !std.objectHas(std.get(step, 'with', {}), 'repositories') &&
-      std.objectHas(std.get(step, 'with', {}), 'owner')
-    )
-  ) &&
+  if check(step) &&
     std.length(std.filter(
       function(elem)
         param.data.file_path == elem.workflow_file_path &&
@@ -31,4 +20,4 @@ function(param) sort([
         std.get(step, 'id', '') == elem.step_id,
       std.get(param.config, 'excludes', [])
     )) == 0
-])
+]
