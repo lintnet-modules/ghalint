@@ -7,11 +7,13 @@ function(param) {
   targets: [
     {
       data_files: [
-        '.github/workflows/*.yml',
-        '.github/workflows/*.yaml',
+        '**/action.yml',
+        '**/action.yaml',
+        '!.github/workflows/action.yml',
+        '!.github/workflows/action.yaml',
       ],
       modules: [
-        'github_archive/github.com/lintnet-modules/ghalint/github_app_should_limit_permissions/main.jsonnet@b2b06cb862255b4516ee33cd328718186393878d:v0.1.0',
+        'github_archive/github.com/lintnet-modules/ghalint/action/composite/github_app_should_limit_permissions/main.jsonnet@0f350f659c7c64c7398249ea0fc23d1cec45c12a:v0.2.0',
       ],
     },
   ],
