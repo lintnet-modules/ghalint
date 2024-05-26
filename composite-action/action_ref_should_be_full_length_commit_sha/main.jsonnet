@@ -1,4 +1,4 @@
-local check = (import '../../common/action_ref_should_be_full_length_commit_sha.jsonnet').check;
+local check = (import '../../util/action_ref_should_be_full_length_commit_sha.jsonnet').check;
 
 /* composite action
 runs:
