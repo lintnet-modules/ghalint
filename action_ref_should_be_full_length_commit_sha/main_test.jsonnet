@@ -1,7 +1,7 @@
 function(param) [
   {
     name: 'pass',
-    data_file: 'pass.yaml',
+    data_file: 'testdata/pass.yaml',
     param: {
       config: {
         excludes: ['slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml'],
@@ -11,7 +11,7 @@ function(param) [
   },
   {
     name: 'fail',
-    data_file: 'fail.yaml',
+    data_file: 'testdata/fail.yaml',
     result: [
       {
         name: "action's ref should be full length commit SHA",

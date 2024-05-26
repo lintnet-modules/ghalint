@@ -1,17 +1,17 @@
 function(param) [
   {
     name: 'pass',
-    data_file: 'pass.yaml',
+    data_file: 'testdata/pass.yaml',
     result: [],
   },
   {
     name: 'workflow permissions is empty',
-    data_file: 'workflow_empty_permissions.yaml',
+    data_file: 'testdata/workflow_empty_permissions.yaml',
     result: null,
   },
   {
     name: 'fail',
-    data_file: 'fail.yaml',
+    data_file: 'testdata/fail.yaml',
     result: [
       {
         name: 'All jobs should have the field permissions',
