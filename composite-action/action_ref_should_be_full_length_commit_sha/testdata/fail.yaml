@@ -1,8 +1,4 @@
-on: push
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-  test:
-    uses: aquaproj/update-checksum-workflow/.github/workflows/update-checksum.yaml@v0.1.3
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v3
