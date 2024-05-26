@@ -1,0 +1,30 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "type": "object",
+    "properties": {
+        "excludes": {
+            "description": "Excluded jobs",
+            "items": {
+                "additionalProperties": false,
+                "description": "Excluded job",
+                "properties": {
+                    "job_name": {
+                        "description": "Job name",
+                        "type": "string"
+                    },
+                    "workflow_file_path": {
+                        "description": "Workflow file path",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "workflow_file_path",
+                    "job_name"
+                ],
+                "type": "object"
+            },
+            "type": "array"
+        }
+    }
+}

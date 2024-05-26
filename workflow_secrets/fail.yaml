@@ -1,0 +1,10 @@
+on: push
+env:
+  GITHUB_TOKEN: ${{github.token}}
+  API_KEY: ${{ secrets.API_KEY }}
+jobs:
+  build:
+    permissions: read-all
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo Hello
