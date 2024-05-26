@@ -9,11 +9,9 @@ function(param) {
       data_files: [
         '.github/workflows/*.yml',
         '.github/workflows/*.yaml',
-        '**/action.yml',
-        '**/action.yaml',
       ],
       modules: [
-        'github_archive/github.com/lintnet-modules/ghalint/deny_job_container_latest_image/main.jsonnet@b2b06cb862255b4516ee33cd328718186393878d:v0.1.0',
+        'github_archive/github.com/lintnet-modules/ghalint/workflow/deny_job_container_latest_image/main.jsonnet@0f350f659c7c64c7398249ea0fc23d1cec45c12a:v0.2.0',
       ],
     },
   ],

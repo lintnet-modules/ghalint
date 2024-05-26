@@ -14,11 +14,11 @@ function(param) {
       ],
       modules: [
         // without config
-        'github_archive/github.com/lintnet-modules/ghalint/github_app_should_limit_repositories/main.jsonnet@b2b06cb862255b4516ee33cd328718186393878d:v0.1.0',
+        'github_archive/github.com/lintnet-modules/ghalint/workflow/github_app_should_limit_repositories/main.jsonnet@0f350f659c7c64c7398249ea0fc23d1cec45c12a:v0.2.0',
 
         // with config
         {
-          path: 'github_archive/github.com/lintnet-modules/ghalint/github_app_should_limit_repositories/main.jsonnet@b2b06cb862255b4516ee33cd328718186393878d:v0.1.0',
+          path: 'github_archive/github.com/lintnet-modules/ghalint/workflow/github_app_should_limit_repositories/main.jsonnet@0f350f659c7c64c7398249ea0fc23d1cec45c12a:v0.2.0',
           config: {
             excludes: [
               {
