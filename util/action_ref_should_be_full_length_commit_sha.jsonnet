@@ -17,7 +17,7 @@ runs:
 local check(elem, param) =
   std.objectHas(elem, 'uses') &&
   !std.startsWith(elem.uses, './') &&
-  !match('@[a-fA-f0-9]{40}$', elem.uses) &&
+  !match('@[a-fA-f0-9]{40}$', elem.uses)[0] &&
   !std.any(std.map(
     function(excludedAction) std.startsWith(elem.uses, excludedAction + '@'),
     std.get(param.config, 'excludes', [])

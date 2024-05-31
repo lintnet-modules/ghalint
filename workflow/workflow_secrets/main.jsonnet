@@ -1,7 +1,4 @@
 local match = std.native('regexp.MatchString');
-local sort(envs) =
-  local _ = std.sort(envs);
-  envs;
 
 function(param) [
   {
@@ -10,6 +7,6 @@ function(param) [
       env: env.key,
     },
   }
-  for env in sort(std.objectKeysValues(std.get(param.data.value[0], 'env', {})))
-  if match('\\${{ *github\\.token *}}', env.value) || match('\\${{ *secrets\\.', env.value)
+  for env in std.sort(std.objectKeysValues(std.get(param.data.value[0], 'env', {})), function(env) env.key)
+  if match('\\${{ *github\\.token *}}', env.value)[0] || match('\\${{ *secrets\\.', env.value)[0]
 ]

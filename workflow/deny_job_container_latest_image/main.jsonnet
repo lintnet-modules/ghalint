@@ -1,9 +1,4 @@
-local match = std.native('regexp.MatchString');
-local sort(envs) =
-  local _ = std.sort(envs);
-  envs;
-
-function(param) sort([
+function(param) [
   {
     name: "Job's container image tag should not be latest",
     location: {
@@ -17,7 +12,7 @@ function(param) sort([
       name: job.key,
       image: if std.type(container) == 'string' then container else std.get(container, 'image', ''),
     }
-    for job in std.objectKeysValues(param.data.value[0].jobs)
+    for job in std.sort(std.objectKeysValues(param.data.value[0].jobs), function(job) job.key)
   ]
   if std.endsWith(job.image, ':latest')
-])
+]
