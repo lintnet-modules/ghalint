@@ -27,10 +27,8 @@ function(param) [
   {
     name: 'excludes',
     data_file: 'testdata/fail.yaml',
+    fake_data_file: '.github/workflows/fail.yaml',
     param: {
-      data: {
-        file_path: '.github/workflows/fail.yaml',
-      },
       config: {
         excludes: [
           {
