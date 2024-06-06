@@ -27,18 +27,16 @@ function(param) [
   {
     name: 'excludes',
     data_file: 'testdata/fail.yaml',
+    fake_data_file: 'action.yaml',
     param: {
-      data: {
-        file_path: 'aciton.yaml',
-      },
       config: {
         excludes: [
           {
-            action_file_path: 'aciton.yaml',
+            action_file_path: 'action.yaml',
             step_id: 'tibdex-token',
           },
           {
-            action_file_path: 'aciton.yaml',
+            action_file_path: 'action.yaml',
             step_id: 'actions-token',
           },
         ],
