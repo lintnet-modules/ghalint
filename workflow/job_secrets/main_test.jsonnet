@@ -10,6 +10,9 @@ function(param) [
     result: [
       {
         name: 'Job should not set secrets to environment variables',
+        links: [
+          'https://github.com/suzuki-shunsuke/ghalint/blob/main/docs/policies/006.md',
+        ],
         location: {
           env: 'API_KEY',
           job: 'build',
@@ -17,6 +20,9 @@ function(param) [
       },
       {
         name: 'Job should not set secrets to environment variables',
+        links: [
+          'https://github.com/suzuki-shunsuke/ghalint/blob/main/docs/policies/006.md',
+        ],
         location: {
           env: 'GITHUB_TOKEN',
           job: 'build',

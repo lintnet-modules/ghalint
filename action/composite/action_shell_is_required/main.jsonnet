@@ -9,6 +9,9 @@ function(param) sort(
     function(idx, step) std.objectHas(step, 'run') && !std.objectHas(step, 'shell'),
     function(idx, step) {
       name: 'shell is required if run is set',
+      links: [
+        'https://github.com/suzuki-shunsuke/ghalint/blob/main/docs/policies/011.md',
+      ],
       location: {
         index: idx,
         [if std.objectHas(step, 'name') then 'step_name']: step.name,
