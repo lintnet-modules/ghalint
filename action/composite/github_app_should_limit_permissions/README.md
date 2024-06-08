@@ -9,8 +9,6 @@ function(param) {
       data_files: [
         '**/action.yml',
         '**/action.yaml',
-        '!.github/workflows/action.yml',
-        '!.github/workflows/action.yaml',
       ],
       modules: [
         'github_archive/github.com/lintnet-modules/ghalint/action/composite/github_app_should_limit_permissions/main.jsonnet@00571db321e413d45be457f39e48cd4237399bb7:v0.3.0',
