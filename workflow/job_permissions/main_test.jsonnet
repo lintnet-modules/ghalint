@@ -15,9 +15,6 @@ function(param) [
     result: [
       {
         name: 'All jobs should have the field permissions',
-        links: [
-          'https://github.com/suzuki-shunsuke/ghalint/blob/main/docs/policies/001.md',
-        ],
         location: {
           job_name: 'build',
         },

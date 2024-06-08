@@ -4,9 +4,6 @@ function(param)
   std.sort([
     {
       name: 'Job should not set secrets to environment variables',
-      links: [
-        'https://github.com/suzuki-shunsuke/ghalint/blob/main/docs/policies/006.md',
-      ],
       location: {
         job: job.key,
         env: env.key,
