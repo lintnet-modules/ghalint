@@ -24,5 +24,9 @@ local check(elem, param) =
   ));
 
 {
+  ruleName: "action's ref should be full length commit SHA",
+  links: [
+    'https://github.com/suzuki-shunsuke/ghalint/blob/main/docs/policies/008.md',
+  ],
   check: check,
 }

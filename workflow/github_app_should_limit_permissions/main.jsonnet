@@ -3,6 +3,9 @@ local check = import '../../util/github_app_should_limit_permissions.jsonnet';
 function(param) [
   {
     name: 'GitHub Actions issueing GitHub Access tokens from GitHub Apps should limit permissions',
+    links: [
+      'https://github.com/suzuki-shunsuke/ghalint/blob/main/docs/policies/010.md',
+    ],
     location: {
       job: job.key,
       [if std.objectHas(step, 'name') then 'step_name']: step.name,

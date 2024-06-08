@@ -1,4 +1,4 @@
-local check = (import '../../util/action_ref_should_be_full_length_commit_sha.jsonnet').check;
+local util = (import '../../util/action_ref_should_be_full_length_commit_sha.jsonnet');
 
 /* workflow
 jobs:
@@ -12,7 +12,8 @@ jobs:
 function(param) [
   // step
   {
-    name: "action's ref should be full length commit SHA",
+    name: util.ruleName,
+    links: util.links,
     location: {
       job: job.key,
       [if std.objectHas(step, 'name') then 'step_name']: step.name,
@@ -22,16 +23,17 @@ function(param) [
   }
   for job in std.sort(std.objectKeysValues(param.data.value[0].jobs), function(x) x.key)
   for step in std.get(job.value, 'steps', [])
-  if check(step, param)
+  if util.check(step, param)
 ] + [
   // reusable workflow
   {
-    name: "action's ref should be full length commit SHA",
+    name: util.ruleName,
+    links: util.links,
     location: {
       job: job.key,
       uses: job.value.uses,
     },
   }
   for job in std.sort(std.objectKeysValues(param.data.value[0].jobs), function(x) x.key)
-  if std.objectHas(job.value, 'uses') && check(job.value, param)
+  if std.objectHas(job.value, 'uses') && util.check(job.value, param)
 ]
