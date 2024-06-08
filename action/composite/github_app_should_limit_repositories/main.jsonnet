@@ -3,9 +3,6 @@ local check = import '../../../util/github_app_should_limit_repositories.jsonnet
 function(param) [
   {
     name: 'GitHub Actions issueing GitHub Access tokens from GitHub Apps should limit repositories',
-    links: [
-      'https://github.com/suzuki-shunsuke/ghalint/blob/main/docs/policies/009.md',
-    ],
     location: {
       [if std.objectHas(step, 'name') then 'step_name']: step.name,
       [if std.objectHas(step, 'id') then 'step_id']: step.id,

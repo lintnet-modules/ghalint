@@ -1,5 +1,3 @@
-local util = (import '../../util/action_ref_should_be_full_length_commit_sha.jsonnet');
-
 function(param) [
   {
     name: 'pass',
@@ -16,16 +14,14 @@ function(param) [
     data_file: 'testdata/fail.yaml',
     result: [
       {
-        name: util.ruleName,
-        links: util.links,
+        name: "action's ref should be full length commit SHA",
         location: {
           job: 'build',
           uses: 'actions/checkout@v3',
         },
       },
       {
-        name: util.ruleName,
-        links: util.links,
+        name: "action's ref should be full length commit SHA",
         location: {
           job: 'test',
           uses: 'aquaproj/update-checksum-workflow/.github/workflows/update-checksum.yaml@v0.1.3',
