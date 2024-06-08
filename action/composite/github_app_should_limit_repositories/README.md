@@ -11,8 +11,6 @@ function(param) {
       data_files: [
         '**/action.yml',
         '**/action.yaml',
-        '!.github/workflows/action.yml',
-        '!.github/workflows/action.yaml',
       ],
       modules: [
         // without config
@@ -24,8 +22,7 @@ function(param) {
           config: {
             excludes: [
               {
-                job_name: 'build',
-                workflow_file_path: '.github/workflows/fail.yaml',
+                action_file_path: 'foo/action.yaml',
                 step_id: 'generate_token',
               },
             ],

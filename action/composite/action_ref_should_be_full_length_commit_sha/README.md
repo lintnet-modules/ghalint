@@ -13,8 +13,6 @@ function(param) {
       data_files: [
         '**/action.yml',
         '**/action.yaml',
-        '!.github/workflows/action.yml',
-        '!.github/workflows/action.yaml',
       ],
       modules: [
         // without config
@@ -34,8 +32,6 @@ function(param) {
       data_files: [
         '**/action.yml',
         '**/action.yaml',
-        '!.github/workflows/action.yml',
-        '!.github/workflows/action.yaml',
       ],
       modules: [
         // with config
