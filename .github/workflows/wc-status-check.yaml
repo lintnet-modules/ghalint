@@ -7,5 +7,6 @@ jobs:
     # If all dependent jobs succeed or are skipped this job succeeds.
     runs-on: ubuntu-latest
     permissions: {}
+    timeout-minutes: 10
     steps:
       - run: exit 1

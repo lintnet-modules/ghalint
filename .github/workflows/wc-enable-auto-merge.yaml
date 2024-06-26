@@ -12,6 +12,7 @@ jobs:
     # Enable automerge to merge pull requests from Renovate automatically.
     runs-on: ubuntu-latest
     permissions: {}
+    timeout-minutes: 20
     steps:
       - name: Generate token
         id: generate_token
