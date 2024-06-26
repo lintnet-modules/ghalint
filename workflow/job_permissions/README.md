@@ -11,7 +11,7 @@ function(param) {
         '.github/workflows/*.yaml',
       ],
       modules: [
-        'github_archive/github.com/lintnet-modules/ghalint/workflow/job_permissions/main.jsonnet@00571db321e413d45be457f39e48cd4237399bb7:v0.3.0',
+        'github_archive/github.com/lintnet-modules/ghalint/workflow/job_permissions/main.jsonnet@0d6f9c5dbc856a70fca35511136d4f1c3195c872:v0.3.1',
       ],
     },
   ],
