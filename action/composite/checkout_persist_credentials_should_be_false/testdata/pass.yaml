@@ -1,0 +1,17 @@
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v4
+      id: step1
+      with:
+        persist-credentials: false
+    - uses: actions/checkout@v4
+      id: step2
+      with:
+        persist-credentials: 'false'
+    - run: echo "Hello"
+      bash: shell
+      id: step3
+    - uses: actions/setup-go@v4
+      id: step4
+
