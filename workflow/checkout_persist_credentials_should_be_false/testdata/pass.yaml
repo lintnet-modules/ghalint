@@ -1,0 +1,17 @@
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        id: step1
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        id: step2
+        with:
+          persist-credentials: 'false'
+      - run: echo "Hello"
+        id: step3
+      - uses: actions/setup-go@v4
+        id: step4
