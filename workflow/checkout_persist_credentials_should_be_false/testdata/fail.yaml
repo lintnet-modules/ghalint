@@ -1,0 +1,21 @@
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        id: step1
+      - uses: actions/checkout@v4
+        id: step2
+        with:
+          persist-credentials: 'true'
+      - run: echo "Hello"
+        id: step3
+      - uses: actions/checkout@v4
+        id: step4
+        with:
+          persist-credentials: true
+      - uses: actions/checkout@v4
+        id: step5
+        with:
+          fetch-depth: 0
