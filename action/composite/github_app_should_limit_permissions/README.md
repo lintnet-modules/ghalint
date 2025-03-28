@@ -11,7 +11,7 @@ function(param) {
         '**/action.yaml',
       ],
       modules: [
-        'github_archive/github.com/lintnet-modules/ghalint/action/composite/github_app_should_limit_permissions/main.jsonnet@12aac7476916a42e9de8646ac75c98274cfe8521:v0.3.2',
+        'github_archive/github.com/lintnet-modules/ghalint/action/composite/github_app_should_limit_permissions/main.jsonnet@c311ef7a7e3acdfb8a65136b7852e0619be84c1d:v0.3.3',
       ],
     },
   ],
