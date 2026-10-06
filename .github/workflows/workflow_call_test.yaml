@@ -6,7 +6,7 @@ jobs:
   path-filter:
     outputs:
       renovate-config-validator: ${{steps.changes.outputs.renovate-config-validator}}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     permissions: {}
     timeout-minutes: 10
     steps:
