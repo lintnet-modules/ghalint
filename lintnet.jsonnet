@@ -9,6 +9,7 @@ function(param) {
       ],
       lint_files: [
         '**/main.jsonnet',
+        '!workflow/action_ref_should_be_full_length_commit_sha/main.jsonnet',
       ],
     },
   ],
