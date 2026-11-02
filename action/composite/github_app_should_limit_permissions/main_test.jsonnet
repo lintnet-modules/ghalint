@@ -9,13 +9,13 @@ function(param) [
     data_file: 'testdata/fail.yaml',
     result: [
       {
-        name: 'GitHub Actions issueing GitHub Access tokens from GitHub Apps should limit permissions',
+        name: 'GitHub Actions issuing GitHub Access tokens from GitHub Apps should limit permissions',
         location: {
           uses: 'tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a',
         },
       },
       {
-        name: 'GitHub Actions issueing GitHub Access tokens from GitHub Apps should limit permissions',
+        name: 'GitHub Actions issuing GitHub Access tokens from GitHub Apps should limit permissions',
         location: {
           uses: 'actions/create-github-app-token@d72941d797fd3113feb6b93fd0dec494b13a2547',
         },
